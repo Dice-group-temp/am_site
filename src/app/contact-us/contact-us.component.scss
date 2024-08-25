@@ -1,0 +1,44 @@
+.contact-us-container {
+  margin: 5% 15%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+
+  align-items: center;
+}
+
+.grid-item {
+  text-align: center;
+  padding: 6% 0;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 300px;
+    max-height: 200px;
+  }
+}
+
+.contact-us {
+  display: flex;
+  font-size: 1.3rem;
+  color: rgb(247, 188, 40);
+  justify-content: center;
+}
+
+.contributors {
+  margin-top: 2rem;
+  padding: 2rem;
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 5%;
+    height: auto;
+  }
+}
