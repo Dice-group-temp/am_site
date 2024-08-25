@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
@@ -9,6 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class NavBarComponent {
   language:string = 'en';
   opened = true
+  @Input() allowToggleLanguage:Boolean = true;
+
   switchLanguage(lang:string) :void{
     this.language = lang
     this.translate.use(lang)
@@ -16,6 +18,7 @@ export class NavBarComponent {
 
   constructor(private activatedRoute: ActivatedRoute, private translate: TranslateService) {
   //  translate.setDefaultLang(this.language)
+  console.log(this.allowToggleLanguage)
   }
 
   ngOnInit() {

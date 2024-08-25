@@ -1,15 +1,15 @@
 
 <div>
-    <app-nav-bar></app-nav-bar>
+    <app-nav-bar [allowToggleLanguage]="false"></app-nav-bar>
     <mat-sidenav-container class="documentation-container">
     
-        <mat-sidenav mode="side" opened>
+        <mat-sidenav mode="side" opened color="primary">
          
             <mat-list role="list">
                 <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/sparql-for-beginners']">Basics of SPARQL </a></mat-list-item>
                 <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/query-am-dbpedia']">Querying Amharic DBpedia</a></mat-list-item>
                 <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/running-dief-extractor']">Running DIEF Framework</a></mat-list-item>
-                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/query-amharic-dbpedia']">Adding New Mapping</a></mat-list-item>
+               
               </mat-list>
           
         

@@ -23,8 +23,10 @@
         color: rgb(232, 11, 118);
         font: 500;
       }
-    }
 
+     
+    }
+    
     .code-snippet-container {
       padding: 0rem 1.5rem;
 
@@ -44,10 +46,23 @@
       margin: 0 !important;
       padding: 0 !important;
     }
-
+    .content-list{
+      margin-left: 5%;
+    }
     
     .closing-remarks {
       margin-top: 7%;
+    }
+    img{
+      margin: 5% 0;
+    }
+    .blob {
+      // width: 75%;
+      display: flex;
+      justify-content: center;
+      margin: 0 5%;
+      padding: 0 10px;
+      background-color: aliceblue;
     }
   }
 

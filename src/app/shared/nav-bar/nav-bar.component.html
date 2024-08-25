@@ -48,7 +48,7 @@
       </button>
       <!-- <hr class="vertical-line"> -->
     </div>
-    <div class="navbar-lang">
+    <div class="navbar-lang" *ngIf="allowToggleLanguage">
       <button
         mat-button
         [matMenuTriggerFor]="languagesMenu"

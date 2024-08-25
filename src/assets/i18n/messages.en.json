@@ -11,7 +11,7 @@
   },
   "about": {
     "section_title": "About DBpedia Amharic Chapter",
-    "section_content": " DBpedia is a collaborative initiative focused on extracting structured information from Wikipedia and presenting it as Linked Open Data. <br><br> The DBpedia Am is the Amharic chapter of DBpedia, it is part of the DBpedia internationalization effort with primary objective of allowing knowledge graph extraction from Amharic Wikipedia. <br> <br> It is first sub-Saharan African language to join the internationalization efforts of DBpedia. "
+    "section_content": " DBpedia is a collaborative initiative focused on extracting structured information from Wikipedia and presenting it as Linked Open Data. <br><br> The DBpedia Am is the Amharic chapter of DBpedia, it is part of the DBpedia internationalization effort with primary objective of allowing knowledge graph extraction from Amharic Wikipedia. <br> <br> It is the first sub-Saharan African language to join the internationalization efforts of DBpedia. "
   },
   "documentation-section": {
     "title": "Documentations",

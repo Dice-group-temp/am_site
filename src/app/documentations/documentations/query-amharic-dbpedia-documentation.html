@@ -156,38 +156,34 @@
           LIMIT 10
         </code></pre></div>
       </div>
-
+<!-- Fact checking -->
       <div class="paragraph">
         <h3 class="sub-section-title">Checking the Existence of a Fact</h3>
         <p>
           Another interesting aspect of SPARQL is that it can be used to answer
           yes-or-no questions about whether something holds true or not. For
-          instance, we can ask DBpedia whether John Doe is or has been the King
+          instance, we can ask DBpedia whether ቀነኒሳ በቀለ is or has been the King
           of Ethiopia.
         </p>
         <div class="code-snippet-container">
       <div class="code-snippet-header">
       </div>
       <pre><code class="language-sparql">
-          PREFIX dbo: <http://dbpedia.org/ontology/>
-          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        
         ASK &#123;
-        ?johnDoe rdfs
-        "John Doe"&#64;en.
-        ?johnDoe rdf
-        dbo
-        .
-        ?johnDoe dbo
-        "ንጉሠ ነገሥት ዘኢትዮጵያ"&#64;am .
+          ?name rdfs:label "ቀነኒሳ በቀለ"&#64;am .
+          ?name dbo:title "ንጉሠ ነገሥት ዘኢትዮጵያ"&#64;am .
         &#125;
-        LIMIT 1
         </code></pre></div>
       </div>
 
+      <!-- Union operation -->
       <div class="paragraph">
         <h3 class="sub-section-title">
-          Handling UNION Operations in SPARQL Queries
+          Utilizing UNION Operations
         </h3>
         <p>
           moving on to more complex queires, lets see how we can define a or
