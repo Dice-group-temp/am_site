@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UrlService } from '../shared/services/url-service/url.service';
 
 @Component({
   selector: 'app-resources',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ResourcesComponent {
 
+  constructor(private urlService:UrlService){
+
+  }
+openInNewTab(url: string):void{
+    window.open(url, '_blank');
+  }
 }
