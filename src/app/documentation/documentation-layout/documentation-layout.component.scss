@@ -1,33 +1,38 @@
-.documentation-container {
-    position: absolute;
-    height: 100%;
-  }
-  
-  mat-sidenav {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    .logo {
-      align-self: center;
-      height: 200px;
-      width: 200px;
-    }
-  
-    a {
-      color: rgb(0, 0, 0);
-      text-decoration: none;
-    }
-    mat-list {
-      margin-top: 5rem;
-      .list-item {
-        padding: 1rem 3rem;
-        
-  
-      }
-      
-     
-    }
-  }
-  
+@use '@angular/material' as mat;
 
+.documentation-container {
+  position: absolute;
+  height: 100%;
+}
+
+mat-sidenav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  .logo {
+    align-self: center;
+    height: 200px;
+    width: 200px;
+  }
+
+  a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  mat-list {
+    margin-top: 5rem;
+    .list-item {
+      margin: 1rem 1.2rem;
+    }
+  }
+  mat-list-item:hover {
+    background-color: rgba(0, 0, 0, 0.1); 
+  }
   
+  mat-list-item.active {
+    color: #075782; 
+    font-weight: 800;
+    margin-left: 4%;
+    border-left: #075782 solid 2px;
+  }
+}

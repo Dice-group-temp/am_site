@@ -6,11 +6,14 @@
         <mat-sidenav mode="side" opened color="primary">
          
             <mat-list role="list">
-                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/sparql-for-beginners']">Basics of SPARQL </a></mat-list-item>
-                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/query-am-dbpedia']">Querying Amharic DBpedia</a></mat-list-item>
-                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/running-dief-extractor']">Running DIEF Framework</a></mat-list-item>
-               
+                <mat-list-item role="listitem" class="list-item" 
+                  *ngFor="let sideNavItem of sideNavItems" 
+                  [class.active]="sideNavItem.id === selectedIndex" 
+                  (click)="selectItem(sideNavItem.id)">
+                  <a [routerLink]="[sideNavItem.link]">{{ sideNavItem.name }}</a>
+                </mat-list-item>
               </mat-list>
+              
           
         
         </mat-sidenav>
