@@ -1,1 +1,78 @@
-<p>query-data works!</p>
+<div id="query-service-container" class="query-service-container">
+
+    <div class="description-container">
+        
+        <div class="description-content">
+            <p class="section-title">
+                How to query Amharic DBpedia ?
+            </p>
+            <p >
+                DBpedia offers valuable benefits for both data owners and developers. For data owners, it provides opportunities to enhance and expand your data, explore new access methods, and increase its overall value. <br> <br> For developers, DBpedia supplies data that can power applications and meet user needs, while also opening up possibilities for innovative uses such as integrating search descriptors with Web-scale repositories for classification. <br> <br>Whether you're a beginner wanting to learn more about SPARQL or an experienced user seeking tips to optimize your queries, the documentation is a helpful resource.<br><br>Below you can find services to query our Amharic dataset. We will add more services here as they become available.
+            </p>
+           
+        </div>
+        <img
+        class="search"
+        src="../../assets/img/search.png"
+        alt="Image of a magnifying lens"
+      />
+      
+    </div>
+
+    <div class="services-container">
+        
+        
+       
+        <div class="services">
+          <mat-card class="card">
+            <mat-card-header class="query-service-card-header">
+              <img
+                class="query-service-logo"
+                mat-card-image
+                src="../../assets/img/open-link-virtuoso-logo.png"
+                alt="Open link virtuoso logo"
+              />
+            </mat-card-header>
+      
+            <mat-card-content>
+              <p>Access our Virtuoso SPARQL endpoint for versatile query capabilities.
+              </p>
+            </mat-card-content>
+      
+            <button
+              class="query-service-button"
+              mat-button
+              (click)="openInNewTab('virtuoso.am.dbpedia.nliwod.org')"
+            >
+            Virtuoso Sparql Endpoint
+            </button>
+          </mat-card>
+      
+          <mat-card class="card">
+            <mat-card-header class="query-service-card-header">
+              <img
+                class="query-service-logo"
+                mat-card-image
+                src="../../assets/img/qlever-logo.png"
+                alt="Qlever logo"
+              />
+            </mat-card-header>
+      
+            <mat-card-content>
+              <p>
+                Access our QLever's SPARQL endpoint for fast queries and autocompletion support.
+              </p>
+            </mat-card-content>
+      
+            <button
+              class="query-service-button"
+              mat-button
+              (click)="openInNewTab('qlever-ui.dbpedia.nliwod.org')"
+            >
+            Qlever Sparql Endpoint
+            </button>
+          </mat-card>
+        </div>
+      </div>
+</div>
+

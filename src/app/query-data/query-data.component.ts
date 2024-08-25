@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./query-data.component.scss']
 })
 export class QueryDataComponent {
-
+  openInNewTab(url: string):void{
+    window.open(url, '_blank');
+  }
 }
