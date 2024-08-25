@@ -5,23 +5,35 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
-
-
 @NgModule({
-  declarations: [
-    NavBarComponent
-  ],
+  declarations: [NavBarComponent],
   imports: [
-    CommonModule, 
+    CommonModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+    MatCardModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDividerModule,
+    MatListModule
   ],
-  exports: [NavBarComponent]
+  exports: [
+    NavBarComponent,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatListModule
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
