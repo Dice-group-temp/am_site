@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 import { DocumentationRoutingModule } from './documentation-routing.module';
 
@@ -8,7 +9,8 @@ import { DocumentationRoutingModule } from './documentation-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    DocumentationRoutingModule
+    DocumentationRoutingModule,
+    SharedModule
   ]
 })
 export class DocumentationModule { }
