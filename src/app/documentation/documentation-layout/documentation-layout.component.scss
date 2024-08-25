@@ -1,0 +1,33 @@
+.documentation-container {
+    position: absolute;
+    height: 100%;
+  }
+  
+  mat-sidenav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .logo {
+      align-self: center;
+      height: 200px;
+      width: 200px;
+    }
+  
+    a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+    }
+    mat-list {
+      margin-top: 5rem;
+      .list-item {
+        padding: 1rem 3rem;
+        
+  
+      }
+      
+     
+    }
+  }
+  
+
+  

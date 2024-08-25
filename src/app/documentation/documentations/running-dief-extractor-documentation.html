@@ -1,0 +1,311 @@
+<div class="documentation-content-container">
+  <h1 class="title">The DIEF framework</h1>
+  <h2 class="subtitle"></h2>
+  <div class="documentation-content">
+    <!-- Getting strarted -->
+    <div class="paragraph">
+      <h3 class="sub-section-title">Getting Started</h3>
+      <p>
+        The DBpedia Extraction Framework is an open-source tool used to extract
+        structured information from Wikipedia. It converts the unstructured
+        content of Wikipedia into RDF data, making it accessible for semantic
+        web applications. This framework plays a crucial role in generating and
+        maintaining the DBpedia knowledge base, which is widely used for
+        research and data integration. The image below summrizes the the overall
+        extraction framework.
+        <img
+          src="../../../assets/img/The-Process-of-DBpedia-Extraction-Framework.png"
+          alt="The process of DBpedia Extraction Framework"
+        />
+
+        If you are interested in learning how the DIEF in works in depth you can
+        view the documentation 
+        <a
+          href="https://github.com/dbpedia/extraction-framework"
+          target="_blank"
+          rel="noopener noreferrer"
+          >here</a
+        >. You can also view or download the framework In this guide we will focus on running and extending the framework
+        for Amharic.
+      </p>
+    </div>
+
+    <!-- Running the framework -->
+    <div class="paragraph">
+      <h3 class="sub-section-title">Running the framework</h3>
+      <p>
+        Running the extraction framework is a relatively complex task which is
+        in details documented in the advanced QuickStart guide. 
+        
+        <br><br>
+        
+        Extraction generally falls into two types: generic and mapping-based. Generic extractors use heuristics to extract data, while mapping-based extractors rely on manually curated mappings. You can view these mappings <a href="https://mappings.dbpedia.org" target="_blank" rel="noopener noreferrer">here</a>. <br><br>The extraction process typically involves parsing data and extracting information from Wikipedia pages to make it available for querying. 
+      </p>
+      <img
+        src="../../../assets/img/Overview-of-DBpedia-extraction-framework.png"
+        alt="Over view of the DBpedia extraction framework"
+      />
+
+      <p>
+        In this guide we will focus on running the extraction framework
+        specifically for Amharic.
+      </p>
+
+      <div class="blob">
+        <p class="blob-text">To run the extraction process via an automated script, you can utilize the <a href="http://dev.dbpedia.org/MARVIN_Release_Bot" target="_blank" rel="noopener noreferrer">MARVIN release bot</a>. The MARVIN bot automates the entire extraction process, from downloading the ontology, mappings, and Wikipedia dumps, to extracting and post-processing the data. </p>
+      </div>
+    </div>
+
+    <!-- prerequistes -->
+    <div class="paragraph">
+      <h3 class="sub-section-title">Pre requisties</h3>
+      <p>
+        <mat-list>
+          <mat-list-item>
+            Maven 3.2+ - used for project management and build automation. Get
+            it from: http://maven.apache.org/.
+          </mat-list-item>
+          <mat-list-item
+            >Java 1.8.x JDK - use JDK version 1.8 ( Java 8) The framework does
+            not compile with Java 10 & 11</mat-list-item
+          >
+          <mat-list-item
+            >rapper version 2.14+ - get it from
+            http://librdf.org/raptor/rapper.html</mat-list-item
+          >
+          <mat-list-item>Git</mat-list-item>
+        </mat-list>
+      </p>
+    </div>
+
+    <!-- Setup  -->
+    <div class="paragraph">
+      <h3 class="sub-section-title">Setup</h3>
+      <h4 class="sub-sub-section-title">Get the framework</h4>
+
+      <pre><code class="language-bash">
+              git clone https://github.com/dbpedia/extraction-framework
+             </code></pre>
+
+      <h4 class="sub-sub-section-title">Configure the framework</h4>
+      <p>
+        Add your respective directories in the
+        <a
+          href="https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/resources/universal.properties"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          core/src/main/resources/universal.properties</a
+        >
+        file.
+      </p>
+      <p class="content-list">
+        <strong>base-dir:</strong> should point to your data directory. This is
+        where your wikidumps will be downloaded and the resulting turtle files
+        from extraction process will be added.
+      </p>
+      <p class="content-list">
+        <strong>log-dir:</strong> should point to the directory where log files
+        should be added.
+      </p>
+
+      <h4 class="sub-sub-section-title">Configure your execution properties</h4>
+      <p>
+        Add or Configure the execution properties as required in the
+        <a
+          href="https://github.com/dbpedia/extraction-framework/blob/master/dump/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          /dump
+        </a>
+        directory. The framework comes with a prepared configuration.
+      </p>
+
+      <mat-list>
+        <p class="content-list">
+          <strong>extraction.default.properties:</strong> the default extraction
+        </p>
+        <p class="content-list">
+          <strong>extraction.mappings.properties:</strong> only extracts mapping
+          datasets
+        </p>
+
+        <p class="content-list">
+          <strong>extraction.spark.properties:</strong> configuration options
+          for the spark-extraction Executes all spark-supported extractors. (no
+          mapping, no NIF, no images)
+        </p>
+
+        <p class="content-list">
+          <strong>extraction.wikidata.properties:</strong> extraction on
+          wikidata datasets
+        </p>
+
+        <p class="content-list">
+          Edit dump/pom.xml and change memory settings for extraction launcher
+          &lt;jvmArg&gt;-Xmx16G&lt;/jvmArg&gt;, if needed.
+        </p>
+      </mat-list>
+
+      You can see the available and configured extractors for a certain language
+      in the
+      <em class="highlight-language-keyword">extraction.*.properties</em>
+      files. <br /><br />
+      NB: If you are a developer and considering adding new extractors or making
+      modifications, be sure to revisit these properties and modify them
+      accordingly.
+
+      <h4 class="sub-sub-section-title">Configure your download properties</h4>
+      <p>
+       Configure your download properties in the
+
+        <a
+          href="https://github.com/dbpedia/extraction-framework/blob/master/dump/download.10000.properties"
+          target="_blank"
+          rel="noopener noreferrer"
+          >download.10000.properties</a
+        >
+        file. It is pre-configured to download all dumps withmore than 10.000
+        articles. Its configuration options include:
+      </p>
+      <mat-list>
+        <mat-list-item>
+          <strong>base-url:</strong> Default download server. It lists mirrors
+          which may be faster. </mat-list-item
+        ><mat-list-item>
+          <strong>require-download-complete:</strong> checks directories for the
+          download-complete file
+        </mat-list-item>
+        <mat-list-item
+          ><strong>languages:</strong> list of languages to download. Add "am"
+          to the list of languages you want to download.
+        </mat-list-item>
+        <mat-list-item
+          ><strong>extractors:</strong> list of extractor classes to be used in
+          the extraction
+        </mat-list-item>
+        <mat-list-item>
+          <strong>extractors.language-code:</strong> additional extractor
+          classes used for this language
+        </mat-list-item>
+      </mat-list>
+
+
+          For the base URL, you can specify a different mirror to obtain your
+          source Wikipedia dump files from Wikimedia. You can find the list of
+          available mirrors for Wikimedia
+          <a
+            href="https://dumps.wikimedia.org/mirrors.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >here</a
+          >. <br /><br />
+          Alternatively, you can download the files manually and place them in
+          your directory path. However, you should pay attention to the folder
+          structure, directory, and file names. You should also set
+          <em class="highlight-language-keyword">require-download-complete</em>
+          to false if you manually placed your files, as they will not include
+          the "download complete" file. <br /><br />
+          However, we recommend using the exsiting script from the framework.
+      
+        <h4 class="sub-sub-section-title">Compile the Framework</h4>
+        <p>
+          Make sure you are using Java 8 and Maven version >= 3.96. To check
+          these, issue the command `mvn -v`. The output should look similar to
+          this:
+        </p>
+
+        <pre><code class="">
+      Apache Maven 3.6.0
+      Maven home: /usr/share/maven
+      Java version: 1.8.0_282, vendor: Oracle Corporation, 
+                    runtime: /home/dbpedia/.sdkman/candidates/java/8.0.282-open/jre
+      Default locale: en_US, platform encoding: UTF-8
+      OS name: "linux", version: "4.19.0-14-amd64", arch: "amd64", family: "unix"</code></pre>
+
+        <p>Compile the framework using</p>
+        <pre><code class="language-bash">
+       mvn install</code></pre>
+      </div>
+    </div> 
+
+    <!-- Download input -->
+    <div class="paragraph">
+      <h3 class="sub-section-title">Download input</h3>
+      <p>
+        The framework requires Wikipedia dumps, an up-to-date DBpedia ontology, and mappings files.
+      </p>
+
+      <div class="">
+        <h4 class="sub-sub-section-title">Download Wiki Dumps</h4>
+        <pre><code class="language-bash">
+            cd dump
+            ../run download download.10000.properties</code></pre>
+        <p>
+          This uses the configuration set in the download.1000.properties file
+          to download the dumps.
+        </p>
+      </div>
+
+      <div class="div">
+        <h4 class="sub-sub-section-title">Download Ontology</h4>
+        <pre><code class="language-bash">
+            cd core
+            ../run download-ontology</code></pre>
+      </div>
+
+      <div class="">
+        <p></p>
+        <h4 class="sub-sub-section-title">Download Mappings</h4>
+        <pre><code class="language-bash">
+            cd core
+            ../run download-mappings
+            </code></pre>
+        <p>
+            This script uses the mappings.json file to retrieve the respective mappings from the DBpedia mappings server for each language listed in the JSON file.
+        </p>
+      </div>
+    </div>
+
+    <!-- Running the extraction -->
+    <div class="paragraph">
+        <h3 class="sub-section-title">Running the Extraction</h3>
+        <p>
+          Once you have configured the files in your dump directory, you can use those files to perform the extraction. For instance, to run the default extraction, you can use the following command:
+        </p>
+        <pre><code class="language-bash">
+          cd dump
+          ../run extraction extraction.default.properties
+        </code></pre>
+       
+          <p>
+            You can see the list of extractors used for the default extraction in your <em class="highlight-language-keyword">extraction.default.properties</em> file. <br /><br />
+            Upon a successful extraction process, you can find the extracted triples in your data directory, as defined by the base directory in the <em class="highlight-language-keyword">universal.properties</em> file. Each extractor run will output a separate Turtle file.
+          </p>
+    </div>
+<br><br><br>
+    <hr>
+
+    <!-- citation -->
+    <div class="">
+        <!-- <h3 class="sub-section-title">Citation</h3> -->
+        <p>Images taken from: </p>
+        <mat-list>
+          <mat-list-item><p> Image 1: A Multilingual Ontology Based Framework for Wikipedia Entry Augmentation. 10.1109/ICCITECHN.2016.7860256.  </p></mat-list-item>
+
+          <mat-list-item><p> Image 2: DBpedia - A Large-scale, Multilingual Knowledge Base Extracted from Wikipedia. Semantic Web Journal. 6. 10.3233/SW-140134. 
+          </p>
+  
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <hr />
+      <p class="author">Author: Meti Bayissa</p>
+      <p class="date">August, 2024</p>
+    </div>
+  
+</div>
