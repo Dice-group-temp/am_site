@@ -7,32 +7,39 @@
 
 mat-sidenav {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #2C5060;
   height: 100%;
+
+
   .logo {
-    align-self: center;
-    height: 200px;
-    width: 200px;
+    justify-self: center;
+    height: 150px;
+    width: 150px;
   }
 
   a {
-    color: rgb(0, 0, 0);
+    color: rgb(251, 249, 249);
     text-decoration: none;
   }
   mat-list {
-    margin-top: 5rem;
     .list-item {
       margin: 1rem 1.2rem;
     }
-  }
+    color: white;
+  
   mat-list-item:hover {
     background-color: rgba(0, 0, 0, 0.1); 
   }
   
   mat-list-item.active {
-    color: #075782; 
+    color: #00070a; 
     font-weight: 800;
     margin-left: 4%;
-    border-left: #075782 solid 2px;
+    background-color: rgba(0, 0, 0, 0.1); 
+
+    border-left: #edf2f4 solid 2px;
   }
+}
 }

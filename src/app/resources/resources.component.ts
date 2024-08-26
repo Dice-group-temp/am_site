@@ -8,7 +8,7 @@ import { UrlService } from '../shared/services/url-service/url.service';
 })
 export class ResourcesComponent {
 
-  constructor(private urlService:UrlService){
+  constructor(public urlService:UrlService){
 
   }
 openInNewTab(url: string):void{

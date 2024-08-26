@@ -22,7 +22,7 @@
               </p>
             </mat-card-content>
       
-            <button class="resources-button" mat-button (click)="openInNewTab('https://mappings.dbpedia.org/index.php/Mapping_am')" i18n>
+            <button class="resources-button" mat-button (click)="openInNewTab(urlService.urls.amharic_mappings_wiki)" i18n>
                 Mappings Wiki
   
               
@@ -42,12 +42,12 @@
         
               <mat-card-content>
                 <p>
-                    Access Mappings Wiki for Amharic
+                    Access Amharic Mappings Server 
                  
                 </p>
               </mat-card-content>
         
-              <button class="resources-button" mat-button (click)="openInNewTab('')">
+              <button class="resources-button" mat-button (click)="openInNewTab(urlService.urls.mappingsServer)">
                 Amharic Mapping Server
                 
              
@@ -72,7 +72,7 @@
                 </p>
               </mat-card-content>
         
-              <a class="resources-button" mat-button>
+              <a class="resources-button" mat-button (click)="openInNewTab(urlService.urls.dief_framework)">
                 View Source code
   
                
@@ -97,7 +97,7 @@
                 </p>
               </mat-card-content>
         
-              <button class="resources-button" mat-button (click)="openInNewTab('')">
+              <button class="resources-button" mat-button (click)="openInNewTab(urlService.urls.amharic_databus_collection)">
                 Amharic Wiki dumps
   
                
