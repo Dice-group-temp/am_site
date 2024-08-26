@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SharedRoutingModule } from '../shared-routing.module';
 
 @NgModule({
   declarations: [NavBarComponent],
@@ -22,7 +23,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MatSidenavModule,
     MatToolbarModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    SharedRoutingModule
   ],
   exports: [
     NavBarComponent,

@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
-  
+  jumpToSection(section: string | null) {
+    console.log(section)
+    if (section) document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

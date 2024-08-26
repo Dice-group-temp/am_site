@@ -10,7 +10,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { QueryDataComponent } from './query-data/query-data.component';
 import { AboutProjectComponent } from './about-project/about-project.component';
 import { DocumentationSectionComponent } from './documentation-section/documentation-section.component';
-
 @NgModule({
   declarations: [
     AppComponent,
